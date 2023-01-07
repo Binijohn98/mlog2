@@ -378,7 +378,7 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{asset('sb-admin-2.js')}}"></script>
-
+  @yield('scripts')
 </body>
 
 </html>
