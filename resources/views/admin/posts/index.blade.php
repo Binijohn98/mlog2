@@ -48,7 +48,7 @@
                             <tr>
                                 <td>{{$post->id}}</td>
                                 <td>{{$post->user->name}}</td>
-                                <td>{{$post->title}}</a></td>
+                                <td><a href="{{route('post.edit', $post->id)}}">{{$post->title}}</a></td>
                                 <td><img width="100px" src="{{asset($post->post_image)}}" alt=""></td>
                                 <td>{{$post->created_at->diffForHumans()}}</td>
                                 <td>{{$post->updated_at->diffForHumans()}}</td>
@@ -65,6 +65,11 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="mx-auto">
+            {{$posts->links()}}
             </div>
         </div>
         
