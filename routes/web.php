@@ -29,8 +29,20 @@ Route::middleware('auth')->group(function(){
 
     Route::put('/admin/users/{user}/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.profile.update');
 
-    Route::delete('/admin/users/{user}/destroy', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.profile.destroy');
+    Route::delete('/admin/users/{user}/destroy', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');
 
-    
+    Route::get('/admin/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+
+    Route::put('users{user}/attach', [App\Http\Controllers\UserController::class, 'attach'])->name('user.role.attach');
+
+    Route::put('users{user}/detach', [App\Http\Controllers\UserController::class, 'detach'])->name('user.role.detach');
+      
 
 });
+Route::middleware(['role:admin','auth'])->group(function(){
+
+    Route::get('/admin/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+   
+    
+});
+
